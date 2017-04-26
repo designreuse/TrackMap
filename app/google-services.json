@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "948238268743",
+    "firebase_url": "https://trucktrackclient-66c1d.firebaseio.com",
+    "project_id": "trucktrackclient-66c1d",
+    "storage_bucket": "trucktrackclient-66c1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948238268743:android:1e57746cd58b2652",
+        "android_client_info": {
+          "package_name": "com.testapp.trucktrackclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "948238268743-te7nuqrqj31s3fnmgj8148ptlinpme0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.testapp.trucktrackclient",
+            "certificate_hash": "2ab78babdfc560953e94f2852147a98d3cde655f"
+          }
+        },
+        {
+          "client_id": "948238268743-8dm1144e7pu7ov4lsskt3q5h13lgmhep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7rf7uBm-QYbAvBAX29rpkTk1TaB46ssc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948238268743-8dm1144e7pu7ov4lsskt3q5h13lgmhep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948238268743:android:b2bc42fb7e27d6ea",
+        "android_client_info": {
+          "package_name": "com.testapp.tracktruck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "948238268743-m2nt4c7d7god3icq2v4mk9jrrgqdbtvm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.testapp.tracktruck",
+            "certificate_hash": "2ab78babdfc560953e94f2852147a98d3cde655f"
+          }
+        },
+        {
+          "client_id": "948238268743-8dm1144e7pu7ov4lsskt3q5h13lgmhep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7rf7uBm-QYbAvBAX29rpkTk1TaB46ssc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948238268743-8dm1144e7pu7ov4lsskt3q5h13lgmhep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
