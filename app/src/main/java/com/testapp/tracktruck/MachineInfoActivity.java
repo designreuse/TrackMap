@@ -1,5 +1,6 @@
 package com.testapp.tracktruck;
 
+import android.location.Location;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -129,6 +130,7 @@ public class MachineInfoActivity extends AppCompatActivity implements OnMapReady
                     for(DataSnapshot machine : user.getChildren()) {
                         if(machine.getKey().equals(machineID)) {
                             userID = user.getKey();
+
                             location = String.valueOf(machine.child("currentLatitude").getValue(Double.class))+
                                     ", " + String.valueOf(machine.child("currentLongitude").getValue(Double.class));
                             currentSpeed = String.valueOf(machine.child("currentSpeed")
@@ -165,6 +167,19 @@ public class MachineInfoActivity extends AppCompatActivity implements OnMapReady
                                         last.child("longitude").getValue(Double.class));
                             }
 
+
+                        }
+                        if(origin != null && dest != null) {
+                            float[] results = new float[1];
+                            Location.distanceBetween(
+                                    origin.latitude,
+                                    origin.longitude,
+                                    dest.latitude,
+                                    dest.longitude,
+                                    results);
+                            String res = String.valueOf(results[0]/1000);
+                            res += " km";
+                            distTravelled.setText(res);
                         }
                     }
 
@@ -172,11 +187,15 @@ public class MachineInfoActivity extends AppCompatActivity implements OnMapReady
                 id.setText(machineID);
                 coordinates.setText(location);
                 speed.setText(currentSpeed);
-                distTravelled.setText(distanceTravelled);
+
                 engineOnOff.setText(engineStatus);
                 time.setText(workingTime);
                 alertCount.setText(batteryAlertCount);
                 fuelConsumpt.setText(fuelConsumption);
+                if(distTravelled.getText().toString().isEmpty()) {
+                    String error = "null";
+                    distTravelled.setText(error);
+                }
 
 
 
