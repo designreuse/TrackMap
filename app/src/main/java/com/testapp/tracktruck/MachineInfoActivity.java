@@ -169,20 +169,28 @@ public class MachineInfoActivity extends AppCompatActivity implements OnMapReady
 
 
                         }
-                        if(origin != null && dest != null) {
-                            float[] results = new float[1];
-                            Location.distanceBetween(
-                                    origin.latitude,
-                                    origin.longitude,
-                                    dest.latitude,
-                                    dest.longitude,
-                                    results);
-                            String res = String.valueOf(results[0]/1000);
-                            res += " km";
-                            distTravelled.setText(res);
-                        }
+
                     }
 
+                }
+                if(origin != null && dest != null) {
+                    String url = getDirectionsUrl(origin,dest);
+                    FetchUrl FetchUrl = new FetchUrl();
+                    FetchUrl.execute(url);
+                    if(mMap != null) {
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin, 8));
+                    }
+
+                    float[] results = new float[1];
+                    Location.distanceBetween(
+                            origin.latitude,
+                            origin.longitude,
+                            dest.latitude,
+                            dest.longitude,
+                            results);
+                    String res = String.valueOf(results[0]/1000);
+                    res += " km";
+                    distTravelled.setText(res);
                 }
                 id.setText(machineID);
                 coordinates.setText(location);
@@ -199,14 +207,7 @@ public class MachineInfoActivity extends AppCompatActivity implements OnMapReady
 
 
 
-                if(origin != null && dest != null) {
-                    String url = getDirectionsUrl(origin,dest);
-                    FetchUrl FetchUrl = new FetchUrl();
-                    FetchUrl.execute(url);
-                    if(mMap != null) {
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin, 8));
-                    }
-                }
+
 
 
             }
