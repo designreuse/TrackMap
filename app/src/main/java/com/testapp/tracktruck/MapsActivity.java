@@ -37,6 +37,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import static android.R.attr.orientation;
+
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
@@ -123,9 +125,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             && machine.hasChild("currentLongitude")) {
                         Double lat = machine.child("currentLatitude").getValue(Double.class);
                         Double lng = machine.child("currentLongitude").getValue(Double.class);
+                        double orient = machine.child("Orientation").getValue(Double.class);
+                        float orientation = (float) orient;
                         if((boolean) machine.child("engineStatus").getValue()) {
                             MarkerOptions markerOptions = new MarkerOptions()
                                     .position(new LatLng(lat,lng))
+                                    .anchor(0.5f, 0.5f)
+                                    .rotation(orientation)
                                     .icon((BitmapDescriptorFactory.fromResource(R.drawable.marker_green)));
                             Marker marker = mMap.addMarker(markerOptions);
                             allMarkers.put(machine.getKey(), marker);
@@ -133,6 +139,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         else {
                             MarkerOptions markerOptions = new MarkerOptions()
                                     .position(new LatLng(lat,lng))
+                                    .anchor(0.5f, 0.5f)
+                                    .rotation(orientation)
                                     .icon((BitmapDescriptorFactory.fromResource(R.drawable.marker_red)));
                             Marker marker = mMap.addMarker(markerOptions);
                             allMarkers.put(machine.getKey(), marker);
@@ -152,14 +160,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         MarkerOptions markerOptions;
                         Double lat = machine.child("currentLatitude").getValue(Double.class);
                         Double lng = machine.child("currentLongitude").getValue(Double.class);
+                        double orient = machine.child("Orientation").getValue(Double.class);
+                        float orientation = (float) orient;
                         if((boolean) machine.child("engineStatus").getValue()) {
                             markerOptions = new MarkerOptions()
                                     .position(new LatLng(lat,lng))
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_green));
+                                    .anchor(0.5f, 0.5f)
+                                    .rotation(orientation)
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_green));
                         }
                         else {
                             markerOptions = new MarkerOptions()
                                     .position(new LatLng(lat,lng))
+                                    .anchor(0.5f, 0.5f)
+                                    .rotation(orientation)
                                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_red));
                         }
                         if(allMarkers.containsKey(machine.getKey())) {
